@@ -77,7 +77,6 @@ func (a *App) getMeals(w http.ResponseWriter, r *http.Request) {
 func (a *App) createMeal(w http.ResponseWriter, r *http.Request) {
 	var m meal
 	decoder := json.NewDecoder(r.Body)
-	// we need to decode because the body is in JSON
 	if err := decoder.Decode(&m); err != nil {
 		respondWithError(w, http.StatusBadRequest, "Invalid request payload")
 		return
